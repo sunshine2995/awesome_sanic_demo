@@ -12,7 +12,7 @@ PROXIES_COUNT: int = int(os.environ.get("PROXIES_COUNT", "0"))
 DB_SETTINGS = {
     "dsn": os.environ.get(
         "DB_DSN",
-        "mysql+pymysql://caibashi:caibashi888@127.0.0.1:3306/character_test?charset=utf8mb4",
+        "mysql+pymysql://root:root@127.0.0.1:3306/character_test?charset=utf8mb4",
     ),
     "pool_size": 100,
     "pool_recycle": 1200,
