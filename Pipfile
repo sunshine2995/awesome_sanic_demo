@@ -1,0 +1,30 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.doubanio.com/simple/"
+verify_ssl = false
+
+[dev-packages]
+
+[packages]
+sanic = "*"
+sqlalchemy = "*"
+gunicorn = "*"
+aioredis = "*"
+pymysql = "*"
+pyjwt = "*"
+sanic-cors = "*"
+aiohttp = "*"
+raven-aiohttp = "*"
+qrcode = "*"
+pillow = "*"
+ipython = "*"
+oss2 = "*"
+python-dateutil = "*"
+pytz = "*"
+cryptography = "*"
+ipdb = "*"
+python-alipay-sdk = "*"
+aio-pika = "*"
+
+[requires]
+python_version = "3.8"
