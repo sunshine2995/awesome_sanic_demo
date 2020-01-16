@@ -69,3 +69,14 @@ def transactional(f):
         return rv
 
     return wrapper
+
+
+def get_transactional_id(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        rv = f(*args, **kwargs)
+        Session().add(rv)
+        Session().commit()
+        return rv.id
+
+    return wrapper

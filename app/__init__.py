@@ -10,6 +10,7 @@ import settings
 from app.utils.http import create_aiohttp_session, close_aiohttp_session
 from app.middleware import configure_middlewares
 from app.exception_handlers import configure_exception_handlers, CustomHandler
+from app.demo.view import demo_blueprint
 
 
 async def setup_redis(app: Sanic, loop) -> None:
@@ -48,7 +49,7 @@ async def close_redis(app: Sanic, loop) -> None:
 
 
 def configure_blueprints(app: Sanic) -> None:
-    pass
+    app.blueprint(demo_blueprint, url_prefix="/demo")
 
 
 def configure_listeners(app: Sanic) -> None:

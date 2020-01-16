@@ -11,3 +11,7 @@ class AuthenticationFailed(Exception):
 
 class NoToken(Exception):
     pass
+
+
+class DemoNotExist(Exception):
+    pass

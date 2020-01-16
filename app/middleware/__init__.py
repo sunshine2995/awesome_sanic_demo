@@ -19,5 +19,5 @@ def configure_middlewares(app: Sanic) -> None:
         signature_middleware.install(app)
 
     db_session_middleware.install(app)
-    jwt_authentication_middleware.install(app)
+    # jwt_authentication_middleware.install(app)
     response_body_middleware.install(app)

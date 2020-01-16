@@ -3,7 +3,6 @@
 from traceback import format_exc
 from typing import Dict
 
-from jwt import PyJWTError
 from sanic import Sanic
 from sanic.exceptions import SanicException
 from sanic.handlers import ErrorHandler
@@ -11,7 +10,7 @@ from sanic.log import logger
 from sanic.request import Request
 from sanic.response import HTTPResponse, json
 
-from app.exceptions import AuthenticationFailed, BadRequest, NoToken
+from app.exceptions import AuthenticationFailed, BadRequest, NoToken, DemoNotExist
 from app.utils import send_exception_to_sentry
 
 
@@ -44,7 +43,12 @@ def handle_authentication_failed(request, exception) -> HTTPResponse:
     return json({"code": 40300, "message": "认证失败"}, status=403)
 
 
+def handle_demo_not_exist(request, exception) -> HTTPResponse:
+    return json({"code": 41001, "message": "Demo不存在"}, status=400)
+
+
 def configure_exception_handlers(app: Sanic) -> None:
     app.error_handler.add(BadRequest, handle_bad_request)
     app.error_handler.add(NoToken, handle_no_token)
     app.error_handler.add(AuthenticationFailed, handle_authentication_failed)
+    app.error_handler.add(DemoNotExist, handle_demo_not_exist)
