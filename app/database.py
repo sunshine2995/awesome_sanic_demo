@@ -58,6 +58,10 @@ engine: Engine = create_engine(
 )
 
 session_factory = sessionmaker(bind=engine)
+
+# close Lazy Loading method
+# session_factory = sessionmaker(bind=engine, expire_on_commit=False)
+
 Session = scoped_session(session_factory, scopefunc=get_current_task)
 
 
